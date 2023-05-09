@@ -16,7 +16,7 @@ var bodyParser=require('body-parser')
 app.use(bodyParser.urlencoded({extended:true}))
 
 const corsOptions = {
-    origin: '',
+    origin: 'https://foodmate.onrender.com',
     credentials: true,
     optionSuccessStatus: 200
 }
