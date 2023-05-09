@@ -1,5 +1,6 @@
 const express=require("express");
 const http=require('http');
+const cors = require('cors');
 const Pizza = require('./models/pizzaModel');
 const db = require("./db.js");
 
@@ -14,6 +15,21 @@ const server=http.createServer(app)
 var bodyParser=require('body-parser')
 app.use(bodyParser.urlencoded({extended:true}))
 
+const corsOptions = {
+    origin: 'https://foodmate-backend.onrender.com',
+    credentials: true,
+    optionSuccessStatus: 200
+}
+
+app.use(cors(corsOptions));
+
+app.use(function (req, res, next) {
+    res.header('Access-Control-Allow-Origin', "https://foodmate-backend.onrender.com");
+    res.header('Access-Control-Allow-Headers', true);
+    res.header('Access-Control-Allow-Credentials', true);
+    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    next();
+})
 
 app.get('/',(req,res)=>{
     res.send('<h1>hello</h1>')
