@@ -16,7 +16,7 @@ var bodyParser=require('body-parser')
 app.use(bodyParser.urlencoded({extended:true}))
 
 const corsOptions = {
-    origin: 'https://foodmate-backend.onrender.com',
+    origin: '',
     credentials: true,
     optionSuccessStatus: 200
 }
@@ -24,7 +24,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 app.use(function (req, res, next) {
-    res.header('Access-Control-Allow-Origin', "https://foodmate-backend.onrender.com");
+    res.header('Access-Control-Allow-Origin', "https://foodmate.onrender.com");
     res.header('Access-Control-Allow-Headers', true);
     res.header('Access-Control-Allow-Credentials', true);
     res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
